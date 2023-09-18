@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#ifndef IMPORT_ERROR_H
+    #include "include/error.h"
+#endif
+
 #ifndef IMPORT_NODE_H
     #include "include/node.h"
 #endif
@@ -22,14 +26,15 @@ Queue* newQueue()
     return queue;
 }
 
-int is_empty(Queue *queue)
+
+int queue_isEmpty(Queue *queue)
 {
     return ((queue->start==NULL) && (queue->end==NULL));
 }
 
-int size(Queue *queue)
+int queue_size(Queue *queue)
 {
-    if(is_empty(queue))
+    if(queue_isEmpty(queue))
         return 0;
     else
     {
@@ -38,18 +43,17 @@ int size(Queue *queue)
         while(node->next!=NULL)
         {
             size++;
-            
             node = node->next;
         }
         return size;
     }
 }
 
-void append(Queue *queue, int value)
+void queue_append(Queue *queue, int value)
 {
     Node *node = newNode(value);
 
-    if(is_empty(queue))
+    if(queue_isEmpty(queue))
     {
         queue->start = node;
         queue->end = node;
@@ -61,14 +65,23 @@ void append(Queue *queue, int value)
     }
 }
 
-int pop(Queue *queue)
+int queue_pop(Queue *queue)
 {
-    if(!is_empty(queue))
+    if(!queue_isEmpty(queue))
     {
         int value = queue->start->value;
 
         Node *node = queue->start;
-        queue->start = queue->start->next;
+        if(queue_size(queue) == 1)
+        {
+            queue->start = NULL;
+            queue->end = NULL;
+        }
+        else
+        {
+            queue->start = queue->start->next; // error if len = 1
+        }
+
         free(node);
 
         return value;
@@ -79,12 +92,13 @@ int pop(Queue *queue)
     }
 }
 
-void print_queue(Queue *queue)
+void queue_print(Queue *queue)
 {
-    Node *aux = queue->start;
-    
-    if(!is_empty(queue))
+    if(queue_isEmpty(queue))
+        printf("EMPTY QUEUE\n");
+    else
     {
+        Node *aux = queue->start;
         while(aux->next!=NULL)
         {
             printf("%d, ", aux->value);
@@ -92,7 +106,5 @@ void print_queue(Queue *queue)
         }
         printf("%d\n", aux->value);
     }
-    else
-        printf("EMPTY\n");
 }
 

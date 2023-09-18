@@ -3,4 +3,6 @@
 typedef enum errors
 {
     EMPTY_ARRAY = 1,
+    EMPTY_STACK,
+    EMPTY_QUEUE
 } Errors;

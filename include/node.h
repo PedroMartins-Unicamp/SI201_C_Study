@@ -2,6 +2,10 @@
 
 #include <stdlib.h>
 
+#ifndef IMPORT_ERROR_H
+    #include "include/error.h"
+#endif
+
 typedef struct node
 {
     int value;
