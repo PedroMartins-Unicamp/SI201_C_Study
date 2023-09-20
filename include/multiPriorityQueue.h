@@ -49,11 +49,16 @@ void mPQueue_append(MPQueue *mPQueue, int value, int prior)
         queue_append(&mPQueue->priority[prior], value);
 }
 
-int mPQueue_pop(MPQueue *mPQueue)
+int* mPQueue_pop(MPQueue *mPQueue)
 {
     for(int prior=0; prior<=mPQueue->maxIndex; prior++)
         if(!(queue_isEmpty(&mPQueue->priority[prior])))
-            return queue_pop(&mPQueue->priority[prior]);
+        {
+            int *indexValue = (int*)malloc(sizeof(int)*2);
+            indexValue[0] = prior;
+            indexValue[1] = queue_pop(&mPQueue->priority[prior]);
+            return indexValue;
+        }
 }
 
 void mPQueue_print(MPQueue *mPQueue)
