@@ -18,83 +18,22 @@
 #endif
 
 #ifndef IMPORT_PRIORITY_QUEUE_H
-    #include "include/priority_queue.h"
+    #include "include/priorityQueue.h"
+#endif
+
+#ifndef IMPORT_MULTI_PRIORITY_QUEUE_H
+    #include "include/multiPriorityQueue.h"
 #endif
 
 int main(void)
 {
-    PQueue *p_queue = newPQueue();
+    int priorityQtd;
+    printf("Quantidade de Prioridades: ");
+    scanf("%d", &priorityQtd);
 
-    pQueue_print(p_queue);
-    printf("\n");
+    MPQueue *mPQueue = newMPQueue(priorityQtd);
 
-    pQueue_append(p_queue, 10, 1);
-    pQueue_append(p_queue, 20, 1);
-    pQueue_append(p_queue, 30, 1);
-    pQueue_append(p_queue, 40, 1);
-    pQueue_append(p_queue, 50, 1);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_append(p_queue, 60, 0);
-    pQueue_append(p_queue, 70, 0);
-    pQueue_append(p_queue, 80, 0);
-    pQueue_append(p_queue, 90, 0);
-    pQueue_append(p_queue, 100, 0);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
-    
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
-
-    pQueue_pop(p_queue);
-
-    pQueue_print(p_queue);
-    printf("\n");
+    mPQueue_print(mPQueue);
 
     return 0;
 }

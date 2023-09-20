@@ -88,7 +88,7 @@ int queue_pop(Queue *queue)
     }
     else 
     {
-        exit(EMPTY_ARRAY);
+        exit(ERROR_EMPTY_ARRAY);
     }
 }
 

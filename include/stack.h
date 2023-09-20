@@ -63,7 +63,7 @@ void stack_append(Stack *stack, int value)
 int stack_pop(Stack *stack)
 {
     if(stack_isEmpty(stack))
-        exit(EMPTY_STACK);
+        exit(ERROR_EMPTY_STACK);
     else
     {
         Node *aux = stack->top;
