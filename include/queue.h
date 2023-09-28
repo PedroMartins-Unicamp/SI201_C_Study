@@ -87,9 +87,7 @@ int queue_pop(Queue *queue)
         return value;
     }
     else 
-    {
         exit(ERROR_EMPTY_ARRAY);
-    }
 }
 
 void queue_print(Queue *queue)

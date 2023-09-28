@@ -48,7 +48,7 @@ int linkedList_size(LinkedList*linkedList)
 
 Node* linkedList_getReference(LinkedList *linkedList, int index)
 {
-    if(linkedList_size(linkedList) < index)
+    if(linkedList_size(linkedList)-1 < index)
         exit(ERROR_LINKED_LIST_INDEX_OUT_OF_RANGE);
     else
     {
@@ -83,7 +83,7 @@ int linkedList_remove(LinkedList *linkedList, int index)
         exit(ERROR_EMPTY_LINKED_LIST);
 
     int listSize = linkedList_size(linkedList);
-    if(listSize < index)
+    if(listSize-1 < index)
         exit(ERROR_LINKED_LIST_INDEX_OUT_OF_RANGE);
     
     
@@ -115,7 +115,7 @@ void linkedList_set(LinkedList *linkedList, int value, int index)
     if(linkedList_isEmpty(linkedList))
         exit(ERROR_EMPTY_LINKED_LIST);
     
-    if(linkedList_size(linkedList) < index)
+    if(linkedList_size(linkedList)-1 < index)
         exit(ERROR_LINKED_LIST_INDEX_OUT_OF_RANGE);
     
     Node *node = linkedList_getReference(linkedList, index);
@@ -124,7 +124,82 @@ void linkedList_set(LinkedList *linkedList, int value, int index)
 
 void linkedList_insert(LinkedList *linkedList, int value, int index)
 {
+    if(index==0)
+    {
+        node->next = linkedList->start;
+        linkedList->start = node;
+    }
+    else
+    {
+        if(linkedList_isEmpty(linkedList))
+            exit(ERROR_EMPTY_LINKED_LIST)
+        
+        if(linkedList_size(linkedList)-1 < index)
+            exit(ERROR_LINKED_LIST_INDEX_OUT_OF_RANGE)
     
+        Node *node = newNode(value);
+
+        Node *previous = linkedList_getReference(linkedList, index-1);
+        Node *aux = previous->next;
+        
+        node->next = aux;
+        previous->next = node;
+    }
+}
+
+void linkedList_reverse(LinkedList *linkedList)
+{
+    if(linkedList_isEmpty(linkedList) || linkedList_size(linkedList)==1)
+    {
+        return;
+    }
+    else
+    {
+        Node *aux1 = linkedList->start;
+        Node *aux2 = aux1->next;
+
+        linkedList->start->next = NULL;
+
+        do
+        {
+            aux1 = aux2;
+            aux2 = aux2->next;
+
+            aux1->next = linkedList->start;
+            linkedList->start = aux1
+        }while(aux2!=NULL);
+    }
+}
+
+int linkedList_getIndex(LinkedList *linkedList, int key)
+{
+    if(linkedList_isEmpty(linkedList))
+        return -1;
+
+    Node *aux = linkedList->start;
+    int pos = 0;
+
+    while(aux->value!=key)
+    {
+        aux = aux->next;
+        pos++;
+
+        if(aux==NULL)
+            return -2;
+    }
+
+    return pos;
+}
+
+void linkedList_removeAllKey(LinkedList *linkedList, int key)
+{
+    int index = linkedList_getIndex(linkedList, key);
+
+    while(index > 0)
+    {
+        linkedList_remove(linkedList, linkedList_getIndex(linkedList, key))
+        int index = linkedList_getIndex(linkedList, key);
+    }
 }
 
 void linkedList_print(LinkedList *linkedList)
