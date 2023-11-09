@@ -8,11 +8,11 @@
 #endif
 
 #ifndef IMPORT_NODE_H
-    #include "include/node.h"
+    #include "include/data_structures/node.h"
 #endif
 
 #ifndef IMPORT_QUEUE_H
-    #include "include/queue.h"
+    #include "include/data_structures/queue.h"
 #endif
 
 typedef struct mPQueue

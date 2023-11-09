@@ -6,7 +6,7 @@
 #endif
 
 #ifndef IMPORT_NODE_H
-    #include "include/node.h"
+    #include "include/data_structures/node.h"
 #endif
 
 
@@ -126,16 +126,17 @@ void linkedList_insert(LinkedList *linkedList, int value, int index)
 {
     if(index==0)
     {
+        Node *node = newNode(value);
         node->next = linkedList->start;
         linkedList->start = node;
     }
     else
     {
         if(linkedList_isEmpty(linkedList))
-            exit(ERROR_EMPTY_LINKED_LIST)
+            exit(ERROR_EMPTY_LINKED_LIST);
         
         if(linkedList_size(linkedList)-1 < index)
-            exit(ERROR_LINKED_LIST_INDEX_OUT_OF_RANGE)
+            exit(ERROR_LINKED_LIST_INDEX_OUT_OF_RANGE);
     
         Node *node = newNode(value);
 
@@ -166,7 +167,7 @@ void linkedList_reverse(LinkedList *linkedList)
             aux2 = aux2->next;
 
             aux1->next = linkedList->start;
-            linkedList->start = aux1
+            linkedList->start = aux1;
         }while(aux2!=NULL);
     }
 }
@@ -197,7 +198,7 @@ void linkedList_removeAllKey(LinkedList *linkedList, int key)
 
     while(index > 0)
     {
-        linkedList_remove(linkedList, linkedList_getIndex(linkedList, key))
+        linkedList_remove(linkedList, linkedList_getIndex(linkedList, key));
         int index = linkedList_getIndex(linkedList, key);
     }
 }
