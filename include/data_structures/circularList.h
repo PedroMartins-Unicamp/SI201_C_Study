@@ -8,7 +8,7 @@
 #endif
 
 #ifndef IMPORT_NODE_H
-    #include "include/node.h"
+    #include "include/data_structures/node.h"
 #endif
 
 typedef struct circularList
@@ -39,7 +39,7 @@ int circularList_size(CircularList *circularList)
 
     while(aux->next!=NULL)
     {
-        counter++
+        counter++;
         aux = aux->next;
     }
 
@@ -49,7 +49,7 @@ int circularList_size(CircularList *circularList)
 void circularList_append(CircularList *circularList, int value)
 {
     Node *node = newNode(value);
-    if(circularList_isEmpty)
+    if(circularList_isEmpty(circularList))
     {
         circularList->start = node;
         node->next = circularList->start;
@@ -65,7 +65,7 @@ void circularList_append(CircularList *circularList, int value)
 }
 
 
-void circularList_print(CircularList *cicularList)
+void circularList_print(CircularList *circularList)
 {
     if(circularList_isEmpty(circularList))
         printf("EMPTY CIRCULAR LIST\n");
@@ -79,6 +79,6 @@ void circularList_print(CircularList *cicularList)
             aux = aux->next;
             printf(", %d", aux->value);
         }
-        printf("] (size: %d)\n", circularList_size(linkedList));
+        printf("] (size: %d)\n", circularList_size(circularList));
     }
 }

@@ -1,6 +1,6 @@
 #define IMPORT_BUBBLE_SORT_H
 
-void bubble_sort(int *array, int size)
+void bubbleSort(int *array, int size)
 {
     for(int max_index = size-1; max_index > 1; max_index--)
     {
@@ -16,7 +16,7 @@ void bubble_sort(int *array, int size)
     }
 }
 
-void bubble_sort_rec(int *array, int size)
+void bubbleSortRecursive(int *array, int size)
 {
     if(size>1)
     {
@@ -30,7 +30,7 @@ void bubble_sort_rec(int *array, int size)
             }
         }
 
-        bubble_sort_rec(array, size-1);
+        bubbleSortRecursive(array, size-1);
     }
 }
 

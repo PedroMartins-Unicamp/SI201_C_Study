@@ -5,6 +5,7 @@
         "node.h": "c",
         "queue.h": "c",
         "stack.h": "c",
-        "multipriorityqueue.h": "c"
+        "multipriorityqueue.h": "c",
+        "linkedlist.h": "c"
     }
 }

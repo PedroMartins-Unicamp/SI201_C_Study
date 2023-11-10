@@ -18,7 +18,7 @@
 #endif
 
 #ifndef IMPORT_LINKED_LIST_H
-    #include "include/data_structures/linkedList.h"
+    #include "include/data_structures/linked_list/linkedList.h"
 #endif
 
 
