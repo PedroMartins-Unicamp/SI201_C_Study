@@ -3,8 +3,11 @@
 
 #include "include/sorting_algorithms/selectionSort.h"
 #include "include/sorting_algorithms/bubbleSort.h"
+#include "include/sorting_algorithms/insertionSort.h"
+#include "include/sorting_algorithms/mergeSort.h"
 
-#define MAX 10
+
+#define MAX 11
 
 void print_array(int *array)
 {
@@ -16,13 +19,13 @@ void print_array(int *array)
 
 int main(void)
 {
-    int array[MAX] = {5, 11, 16, 2, 8, 7, 22, 9, 9, 4};
+    int array[MAX] = {5, 11, 16, 2, 8, 7, 22, 9, 9, 4, 18};
 
     printf("Before Sorting: ");
     print_array(array);
     printf("\n");
 
-    bubbleSort(array, MAX);
+    mergeSort(array, MAX);
 
     printf("After Sorting: ");
     print_array(array);

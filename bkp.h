@@ -34,7 +34,7 @@ void mergeSort(int *array, int size)
 
         for(int i = 0; i < leftHalfSize; i++)
             leftHalf[i] = array[i];
-
+        
         for(int i = 0; i < rightHalfSize; i++)
             rightHalf[i] = array[i+leftHalfSize];
 
@@ -42,7 +42,6 @@ void mergeSort(int *array, int size)
         mergeSort(rightHalf, rightHalfSize);
 
         merge(array, size, leftHalf, leftHalfSize, rightHalf, rightHalfSize);
-
 
         free(leftHalf);
         free(rightHalf);

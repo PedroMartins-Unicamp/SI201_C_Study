@@ -1,16 +1,18 @@
 #define IMPORT_BUBBLE_SORT_H
 
+#include <stdlib.h>
+
 void bubbleSort(int *array, int size)
 {
-    for(int max_index = size-1; max_index > 1; max_index--)
+    for(int maxIndex = size-1; maxIndex > 1; maxIndex--)
     {
-        for(int i = 0; i < max_index; i++)
+        for(int i = 0; i < maxIndex; i++)
         {
-            if(array[i]>array[i+1])
+            if(array[i] > array[i+1])
             {
-                int aux = array[i+1];
-                array[i+1] = array[i];
-                array[i] = aux;
+                int aux = array[i];
+                array[i] = array[i+1];
+                array[i+1] = aux;
             }
         }
     }
@@ -18,28 +20,17 @@ void bubbleSort(int *array, int size)
 
 void bubbleSortRecursive(int *array, int size)
 {
-    if(size>1)
+    if(size > 1)
     {
         for(int i = 0; i < size; i++)
         {
-            if(array[i]>array[i+1])
+            if(array[i] > array[i+1])
             {
-                int aux = array[i+1];
-                array[i+1] = array[i];
-                array[i] = aux;
+                int aux = array[i];
+                array[i] = array[i+1];
+                array[i+1] = aux;
             }
         }
-
         bubbleSortRecursive(array, size-1);
     }
 }
-
-
-/*
-Gabriel Cardoso dos Reis - 185671
-Gabriel Mendes da Cruz - 195824
-Sérgio Carlos - 195405
-
-
-
-*/
