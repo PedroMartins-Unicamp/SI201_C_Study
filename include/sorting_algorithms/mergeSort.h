@@ -21,13 +21,12 @@ void merge(int *array, int size, int *array1, int size1, int *array2, int size2)
         array[arrayTop++] = array2[array2Top++];
 }
 
-
 void mergeSort(int *array, int size)
 {
     if(size > 1)
     {
         int leftHalfSize = size/2;
-        int rightHalfSize = size - leftHalfSize;
+        int rightHalfSize = size-leftHalfSize;
 
         int *leftHalf = (int*)malloc(sizeof(int)*leftHalfSize);
         int *rightHalf = (int*)malloc(sizeof(int)*rightHalfSize);
@@ -48,4 +47,3 @@ void mergeSort(int *array, int size)
         free(rightHalf);
     }
 }
-

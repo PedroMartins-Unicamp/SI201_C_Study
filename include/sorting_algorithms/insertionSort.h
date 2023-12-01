@@ -1,24 +1,22 @@
-#define IMPORT_INSERTION_SORT_H
+#define IMPORT_SELECTION_SORT_H
 
 #include <stdlib.h>
 
 void insertionSort(int *array, int size)
 {
-    if(size <= 1)
-        return;
-
-    int maxIndex = size-1;
-
-    for(int i = 1; i <= maxIndex; i++)
+    if(size > 1)
     {
-        int j = i;
-        while((array[j] < array[j-1]) && (j > 0))
+        for(int maxIndex = 1; maxIndex < size-1; maxIndex++)
         {
-            int aux = array[j];
-            array[j] = array[j-1];
-            array[j-1] = aux;
+            int i = maxIndex;
+            while((array[i] < array[i-1]) && (i > 0))
+            {
+                int aux = array[i];
+                array[i] = array[i-1];
+                array[i-1] = aux;
 
-            j--;
+                i--;
+            }
         }
     }
 }
